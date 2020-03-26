@@ -138,7 +138,6 @@
     <ClInclude Include="src\Cerius\Networking.h" />
     <ClInclude Include="src\Cerius\Structs.h" />
     <ClInclude Include="src\Cerius\Structs\Core-Structs.h" />
-    <ClInclude Include="src\Cerius\Structs\DynamicArray.h" />
     <ClInclude Include="src\Cerius\Structs\Dynamic\Array.h" />
     <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h" />
     <ClInclude Include="src\Cerius\Structs\SLList.h" />

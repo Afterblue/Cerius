@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <Cerius/Structs/List.h>
+#include <Cerius/Structs/SLList.h>
 int print_int(void*);
 int main() {
 	// Write your code below
 	int num, i, size;
-	List* list;
+	SLList* list;
 	srand((unsigned)time(NULL));
 	list = new_list();
 	for (i = 0, size = rand() % 5 + 3; i < size; i++) {

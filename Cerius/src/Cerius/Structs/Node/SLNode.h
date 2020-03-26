@@ -1,6 +1,6 @@
 #pragma once
-#if !defined(_INC_SNODE)
-#define _INC_SNODE
+#if !defined(_INC_SLNODE)
+#define _INC_SLNODE
 #if !defined(_INC_CORE_STRCTS)
 #include "../Core-Structs.h"
 #endif // _INC_CORE_STRCTS

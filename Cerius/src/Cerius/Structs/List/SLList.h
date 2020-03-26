@@ -1,10 +1,10 @@
 #pragma once
-#if !defined(_INC_LIST)
-#define _INC_LIST
+#if !defined(_INC_SLLIST)
+#define _INC_SLLIST
 #if !defined(_INC_STRCTS_CORE)
 #include "../Core-Structs.h"
 #endif
-#if !defined(_INC_SNODE)
+#if !defined(_INC_SLNODE)
 #include "../SLNode.h"
 #endif
 typedef struct SLList SLList;
