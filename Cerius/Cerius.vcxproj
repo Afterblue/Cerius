@@ -140,20 +140,23 @@
     <ClInclude Include="src\Cerius\Structs\Core-Structs.h" />
     <ClInclude Include="src\Cerius\Structs\Dynamic\Array.h" />
     <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h" />
-    <ClInclude Include="src\Cerius\Structs\SLList.h" />
-    <ClInclude Include="src\Cerius\Structs\List\SLList.h" />
+    <ClInclude Include="src\Cerius\Structs\List.h" />
+    <ClInclude Include="src\Cerius\Structs\List\List.h" />
     <ClInclude Include="src\Cerius\Structs\Node\DLNode.h" />
-    <ClInclude Include="src\Cerius\Structs\Node\SLNode.h" />
-    <ClInclude Include="src\Cerius\Structs\SLNode.h" />
+    <ClInclude Include="src\Cerius\Structs\Node\Node.h" />
+    <ClInclude Include="src\Cerius\Structs\Node.h" />
     <ClInclude Include="src\Cerius\Structs\Sparse\SparseMatrix.h" />
     <ClInclude Include="src\Cerius\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c" />
     <ClCompile Include="src\Cerius\Structs\Dynamic\Matrix.c" />
-    <ClCompile Include="src\Cerius\Structs\List\SLList.c" />
+    <ClCompile Include="src\Cerius\Structs\List\List.c" />
     <ClCompile Include="src\Cerius\Structs\Node\DLNode.c" />
-    <ClCompile Include="src\Cerius\Structs\Node\SLNode.c" />
+    <ClCompile Include="src\Cerius\Structs\Node\Node.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
