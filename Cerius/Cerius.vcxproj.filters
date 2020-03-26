@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Cerius">
+      <UniqueIdentifier>{30A38CAB-1C45-B781-0500-CBD5F1403ED2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cerius\Structs">
+      <UniqueIdentifier>{57CAF3F6-4398-E7FC-2C2C-58231899C361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cerius\Structs\DynamicArray">
+      <UniqueIdentifier>{8AF82BCC-F605-5AB2-7FEC-559DEBF82569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cerius\Structs\List">
+      <UniqueIdentifier>{22D35047-8E34-2E55-17A2-740783026514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cerius\Structs\Node">
+      <UniqueIdentifier>{6C035247-D864-2F55-61D2-7507CD326614}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Cerius.h" />
+    <ClInclude Include="src\Cerius\Algorithms.h">
+      <Filter>Cerius</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Core.h">
+      <Filter>Cerius</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Graphics.h">
+      <Filter>Cerius</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Networking.h">
+      <Filter>Cerius</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs.h">
+      <Filter>Cerius</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Core-Structs.h">
+      <Filter>Cerius\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\DynamicArray.h">
+      <Filter>Cerius\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Utils.h">
+      <Filter>Cerius</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Sparse\SparseMatrix.h" />
+    <ClInclude Include="src\Cerius\Structs\Dynamic\Array.h" />
+    <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h" />
+    <ClInclude Include="src\Cerius\Structs\Node\SLNode.h">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\SLNode.h">
+      <Filter>Cerius\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Node\DLNode.h">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\List\SLList.h">
+      <Filter>Cerius\Structs\List</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\SLList.h">
+      <Filter>Cerius\Structs</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c" />
+    <ClCompile Include="src\Cerius\Structs\Dynamic\Matrix.c" />
+    <ClCompile Include="src\Cerius\Structs\Node\SLNode.c">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\Node\DLNode.c">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\List\SLList.c">
+      <Filter>Cerius\Structs\List</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
