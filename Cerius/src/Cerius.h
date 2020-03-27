@@ -2,7 +2,7 @@
 #define _INC_CERIUS
 #if !defined  (_INC_CORE)
 #include "Cerius/Core.h"
-#endif
+#endif // _INC_CORE
 #if !defined (_INC_STRCTS)
 #include "Cerius/Structs.h"
 #endif // _INC_STRCTS

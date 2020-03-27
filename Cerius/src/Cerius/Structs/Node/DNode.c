@@ -49,3 +49,8 @@ int delete_dnode(DNode* this) {
 	delete(this);
 	return sizeof(DNode);
 }
+int free_dnode(DNode* this) {
+	delete(this->data);
+	delete(this);
+	return sizeof(void*) + sizeof(DNode);
+}

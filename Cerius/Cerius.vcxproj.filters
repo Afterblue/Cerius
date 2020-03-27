@@ -56,6 +56,9 @@
       <Filter>Cerius\Structs\List</Filter>
     </ClInclude>
     <ClInclude Include="src\Cerius\Structs\Node\DNode.h" />
+    <ClInclude Include="src\Cerius\Structs\List\LinkedList.h" />
+    <ClInclude Include="src\Cerius\Structs\DNode.h" />
+    <ClInclude Include="src\Cerius\Structs\LinkedList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c" />
@@ -67,6 +70,7 @@
       <Filter>Cerius\Structs\List</Filter>
     </ClCompile>
     <ClCompile Include="src\Cerius\Structs\Node\DNode.c" />
+    <ClCompile Include="src\Cerius\Structs\List\LinkedList.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

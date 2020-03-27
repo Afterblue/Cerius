@@ -1,9 +1,9 @@
 #pragma once
 #include "List.h"
 struct List {
+	int size;
 	Node* head;
 	Node* tail;
-	int size;
 };
 List* new_list() {
 	List* this = new(List);
@@ -71,7 +71,7 @@ void* list_pop_first(List* this) {
 			this->tail = NULL;
 		data = new(void*);
 		copy(data, node_get_data(node));
-		delete_node(node);
+		free_node(node);
 		this->size--;
 		return data;
 	}
@@ -91,7 +91,7 @@ void* list_pop_at(List* this, int index) {
 			node_set_next(prev, node_get_next(pos));
 			data = new(void*);
 			copy(data, node_get_data(pos));
-			delete_node(pos);
+			free_node(pos);
 			this->size--;
 			return data;
 		}
@@ -112,7 +112,7 @@ void* list_pop(List* this) {
 		data = new(void*);
 		copy(data, node_get_data(this->tail));
 		node_set_next(pos, NULL);
-		delete_node(this->tail);
+		free_node(this->tail);
 		this->tail = pos;
 		this->size--;
 		return data;
@@ -134,7 +134,7 @@ void* list_pop_element(List* this, void* obj, int (*cmp)(void*, void*)) {
 			node_set_next(prev, node_get_next(pos));
 			data = new(void*);
 			copy(data, node_get_data(pos));
-			delete_node(pos);
+			free_node(pos);
 			this->size--;
 			return data;
 		}
@@ -237,10 +237,15 @@ char* list_to_str(List* this, char* (*obj_to_str)(void*)) {
 	return str;
 }
 
-int free_list(List* this, int (*destroy)(void*)) {
+int free_list(List* this) {
 	int bytes;
-	Node* pos;
-	for (bytes = 0, pos = this->head; pos; pos = node_get_next(pos))
-		bytes += destroy(node_get_data(pos));
+	Node* node;
+	bytes = this->size;
+	while (this->head) {
+		node = this->head;
+		this->head = node_get_next(this->head);
+		free_node(node);
+	}
+	delete(this);
 	return bytes;
 }

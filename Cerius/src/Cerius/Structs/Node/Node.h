@@ -10,5 +10,5 @@ CERIUS_API void* node_get_data(Node*);
 CERIUS_API bool node_set_data(Node*, void*);
 CERIUS_API Node* node_get_next(Node*);
 CERIUS_API bool node_set_next(Node*, Node*);
-CERIUS_API int delete_node(Node*);
+CERIUS_API int free_node(Node*);
 #endif // _INC_SNODE

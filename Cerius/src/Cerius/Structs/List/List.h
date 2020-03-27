@@ -27,5 +27,5 @@ CERIUS_API int list_print(List*, int (*)(void*));
 CERIUS_API bool list_equals(List*, List*, int (*)(void*, void*));
 CERIUS_API List* list_clone(List*);
 CERIUS_API char* list_to_str(List*, char* (*)(void*));
-CERIUS_API int free_list(List*, int(*)(void*));
+CERIUS_API int free_list(List*);
 #endif

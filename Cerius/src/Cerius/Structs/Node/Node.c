@@ -32,8 +32,8 @@ bool node_set_next(Node* this, Node* next) {
 	}
 	return false;
 }
-int delete_node(Node* this) {
+int free_node(Node* this) {
 	delete(this->data);
 	delete(this);
-	return sizeof(Node);
+	return sizeof(void*) + sizeof(Node);
 }
