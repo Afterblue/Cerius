@@ -8,7 +8,7 @@
 #include "../DNode.h"
 #endif // _INC_DNODE
 typedef struct LinkedList LinkedList;
-LinkedList* new_linked_list();
+CERIUS_API LinkedList* new_linked_list();
 CERIUS_API bool linked_list_append(LinkedList*, void*);
 CERIUS_API bool linked_list_prepend(LinkedList*, void*);
 CERIUS_API bool linked_list_add(LinkedList*, int, void*);

@@ -53,7 +53,7 @@ bool linked_list_add(LinkedList* this, int index, void* obj) {
 		if (this->size > index) {
 			if (index == this->size - 1)
 				return linked_list_append(this, obj);
-			if (node = new_node(obj)) {
+			if (node = new_dnode(obj)) {
 				for (pos = this->head; index; pos = dnode_get_next(pos), index--);
 				dnode_set_next(node, dnode_get_next(pos));
 				dnode_set_prev(dnode_get_next(pos), node);
@@ -87,6 +87,7 @@ void* linked_list_pop_at(LinkedList* this, int index) {
 	void* data;
 	DNode* pos;
 	DNode* prev;
+	DNode* next;
 	if (this && this->head && this->tail && index > -1) {
 		if (!index)
 			return linked_list_pop_first(this);
@@ -94,8 +95,9 @@ void* linked_list_pop_at(LinkedList* this, int index) {
 			if (index == this->size - 1)
 				return linked_list_pop(this);
 			for (pos = this->head; index; index--, prev = pos, pos = dnode_get_next(pos));
-			dnode_set_next(prev, dnode_get_next(pos));
-			dnode_set_prev(dnode_get_next(pos), prev);
+			next = dnode_get_next(pos);
+			dnode_set_next(prev, next);
+			dnode_set_prev(next, prev);
 			data = new(void*);
 			copy(data, dnode_get_data(pos));
 			free_dnode(pos);
