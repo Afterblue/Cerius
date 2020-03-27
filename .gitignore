@@ -3,11 +3,11 @@
 !vendor/bin/premake/
 bin-int/
 
-# Cerius files
-*.log
-
 # Visual Studio files and folder
 .vs/
+*.log
+*.ilk
+*.pdb
 **.sln
 **.vcxproj
 **.vcxproj.filters
