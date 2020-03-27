@@ -43,9 +43,6 @@
     <ClInclude Include="src\Cerius\Structs\Sparse\SparseMatrix.h" />
     <ClInclude Include="src\Cerius\Structs\Dynamic\Array.h" />
     <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h" />
-    <ClInclude Include="src\Cerius\Structs\Node\DLNode.h">
-      <Filter>Cerius\Structs\Node</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cerius\Structs\Node.h">
       <Filter>Cerius\Structs</Filter>
     </ClInclude>
@@ -58,19 +55,18 @@
     <ClInclude Include="src\Cerius\Structs\List\List.h">
       <Filter>Cerius\Structs\List</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Node\DNode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c" />
     <ClCompile Include="src\Cerius\Structs\Dynamic\Matrix.c" />
-    <ClCompile Include="src\Cerius\Structs\Node\DLNode.c">
-      <Filter>Cerius\Structs\Node</Filter>
-    </ClCompile>
     <ClCompile Include="src\Cerius\Structs\Node\Node.c">
       <Filter>Cerius\Structs\Node</Filter>
     </ClCompile>
     <ClCompile Include="src\Cerius\Structs\List\List.c">
       <Filter>Cerius\Structs\List</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\Node\DNode.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -15,4 +15,4 @@
 #if !defined (_INC_NETWRK)
 #include "Cerius/Networking.h"
 #endif // _INC_NETWRK
-#endif //  _INC_CRSLY
+#endif //  _INC_CERIUS

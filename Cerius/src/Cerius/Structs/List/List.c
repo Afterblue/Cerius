@@ -41,7 +41,7 @@ bool list_prepend(List* this, void* obj) {
 		}
 	return false;
 }
-bool list_add(List* this, void* obj, int index) {
+bool list_add(List* this, int index, void* obj) {
 	Node* node;
 	Node* pos;
 	if (this && index > -1) {
@@ -87,7 +87,7 @@ void* list_pop_at(List* this, int index) {
 		if (this->size > index) {
 			if (index == this->size - 1)
 				return list_pop(this);
-			for (pos = this->head; index; prev = pos, pos = node_get_next(pos), index--);
+			for (pos = this->head; index; index--, prev = pos, pos = node_get_next(pos));
 			node_set_next(prev, node_get_next(pos));
 			data = new(void*);
 			copy(data, node_get_data(pos));
@@ -150,7 +150,12 @@ bool list_remove_first(List* this) {
 	return false;
 }
 bool list_remove_at(List* this, int index) {
-	return (bool)list_pop_at(this, index);
+	void* data;
+	if (data = list_pop_at(this, index)) {
+		delete(data);
+		return true;
+	}
+	return false;
 }
 bool list_remove_last(List* this) {
 	void* data;
@@ -160,34 +165,48 @@ bool list_remove_last(List* this) {
 	}
 	return false;
 }
-bool list_remove(List* this, void* obj, bool (*equals)(void*, void*)) {
-	Node* pos;
-	for (pos = this->head; pos && !equals(obj, node_get_data(pos)); pos = node_get_next(pos));
-	if (pos) {
-
+bool list_remove(List* this, void* obj, int (*cmp)(void*, void*)) {
+	void* data;
+	if (data = list_pop_element(this, obj, cmp)) {
+		delete(data);
 		return true;
 	}
 	return false;
 }
 void* list_get(List* this, int index) {
-	/*
-		WIP
-	*/
+	Node* pos;
+	for (pos = this->head; pos && index; index--, pos = node_get_next(pos));
+	if (pos)
+		return node_get_data(pos);
 	return NULL;
 }
-int list_find(List* this, void* obj, bool (*equals)(void*, void*)) {
+int list_find(List* this, void* obj, int (*cmp)(void*, void*)) {
 	int index;
 	Node* pos;
 	for (index = 0, pos = this->head; pos; index++, pos = node_get_next(pos))
-		if (equals(node_get_data(pos), obj))
+		if (!cmp(node_get_data(pos), obj))
 			return index;
 	return -1;
 }
-bool list_sort(List* this, void (*cmp)(void*, void*)) {
-	/*
-		WIP
-	*/
-	return false;
+bool list_sort(List* this, int (*cmp)(void*, void*)) {
+	void* data;
+	void* data1;
+	void* data2;
+	Node* temp1;
+	Node* temp2;
+	data = new(void*);
+	for (temp1 = this->head; temp1; temp1 = node_get_next(temp1)) {
+		for (temp2 = node_get_next(temp1); temp2; temp2 = node_get_next(temp2)) {
+			data1 = node_get_data(temp1);
+			data2 = node_get_data(temp2);
+			if (cmp(data1, data2) > 0) {
+				copy(data, data1);
+				node_set_data(temp1, data2);
+				node_set_data(temp2, data);
+			}
+		}
+	}
+	return true;
 }
 int list_print(List* this, int (*print)(void*)) {
 	int bytes;
@@ -196,10 +215,10 @@ int list_print(List* this, int (*print)(void*)) {
 		bytes += print(node_get_data(pos));
 	return bytes + print(NULL);
 }
-bool list_equals(List* this, List* other, bool (*equals)(void*, void*)) {
+bool list_equals(List* this, List* other, int (*cmp)(void*, void*)) {
 	Node* pos1, * pos2;
 	for (pos1 = this->head, pos2 = other->head; pos1 && pos2; pos1 = node_get_next(pos1), pos2 = node_get_next(pos2))
-		if (equals(node_get_data(pos1), node_get_data(pos2)))
+		if (cmp(node_get_data(pos1), node_get_data(pos2)))
 			return false;
 	return !pos1 && !pos2;
 }
@@ -218,7 +237,7 @@ char* list_to_str(List* this, char* (*obj_to_str)(void*)) {
 	return str;
 }
 
-int delete_list(List* this, int (*destroy)(void*)) {
+int free_list(List* this, int (*destroy)(void*)) {
 	int bytes;
 	Node* pos;
 	for (bytes = 0, pos = this->head; pos; pos = node_get_next(pos))

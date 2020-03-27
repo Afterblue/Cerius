@@ -1,9 +1,9 @@
 #pragma once
 #include "Node.h"
-typedef struct Node {
+struct Node {
 	void* data;
 	Node* next;
-}Node;
+};
 Node* new_node(void* data) {
 	Node* this;
 	this = new(Node);

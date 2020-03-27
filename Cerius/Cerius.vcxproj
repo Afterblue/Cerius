@@ -142,7 +142,7 @@
     <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h" />
     <ClInclude Include="src\Cerius\Structs\List.h" />
     <ClInclude Include="src\Cerius\Structs\List\List.h" />
-    <ClInclude Include="src\Cerius\Structs\Node\DLNode.h" />
+    <ClInclude Include="src\Cerius\Structs\Node\DNode.h" />
     <ClInclude Include="src\Cerius\Structs\Node\Node.h" />
     <ClInclude Include="src\Cerius\Structs\Node.h" />
     <ClInclude Include="src\Cerius\Structs\Sparse\SparseMatrix.h" />
@@ -152,7 +152,7 @@
     <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c" />
     <ClCompile Include="src\Cerius\Structs\Dynamic\Matrix.c" />
     <ClCompile Include="src\Cerius\Structs\List\List.c" />
-    <ClCompile Include="src\Cerius\Structs\Node\DLNode.c" />
+    <ClCompile Include="src\Cerius\Structs\Node\DNode.c" />
     <ClCompile Include="src\Cerius\Structs\Node\Node.c" />
   </ItemGroup>
   <ItemGroup>
