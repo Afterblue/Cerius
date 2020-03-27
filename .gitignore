@@ -6,8 +6,6 @@ bin-int/
 # Visual Studio files and folder
 .vs/
 *.log
-*.ilk
-*.pdb
 **.sln
 **.vcxproj
 **.vcxproj.filters
