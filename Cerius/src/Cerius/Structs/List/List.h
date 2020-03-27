@@ -4,7 +4,7 @@
 #if !defined(_INC_STRCTS_CORE)
 #include "../Core-Structs.h"
 #endif
-#if !defined(_INC_SLNODE)
+#if !defined(_INC_NODE)
 #include "../Node.h"
 #endif
 typedef struct List List;
