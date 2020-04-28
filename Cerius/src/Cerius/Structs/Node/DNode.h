@@ -9,8 +9,8 @@ CERIUS_API DNode* new_dnode(void*);
 CERIUS_API void* dnode_get_data(DNode*);
 CERIUS_API bool dnode_set_data(DNode*, void*);
 CERIUS_API DNode* dnode_get_next(DNode*);
-CERIUS_API bool dnode_set_next(DNode*);
+CERIUS_API bool dnode_set_next(DNode*, DNode*);
 CERIUS_API DNode* dnode_get_prev(DNode*);
-CERIUS_API bool dnode_set_prev(DNode*);
+CERIUS_API bool dnode_set_prev(DNode*, DNode*);
 CERIUS_API int free_dnode(DNode*);
-#endif
+#endif // _INC_DNODE

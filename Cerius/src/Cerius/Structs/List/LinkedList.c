@@ -7,7 +7,7 @@ struct LinkedList {
 };
 LinkedList* new_linked_list() {
 	LinkedList* this;
-	this = new(LinkedList);
+	this = malloc(sizeof(LinkedList));
 	this->head = this->tail = NULL;
 	this->size = 0;
 	return this;
@@ -74,8 +74,8 @@ void* linked_list_pop_first(LinkedList* this) {
 		this->head = dnode_get_next(this->head);
 		if (!this->head)
 			this->tail = NULL;
-		data = new(void*);
-		copy(data, dnode_get_data(node));
+		data = malloc(sizeof(void*));
+		memcpy(data, dnode_get_data(node), sizeof(void*));
 		free_dnode(node);
 		this->size--;
 		return data;
@@ -98,8 +98,8 @@ void* linked_list_pop_at(LinkedList* this, int index) {
 			next = dnode_get_next(pos);
 			dnode_set_next(prev, next);
 			dnode_set_prev(next, prev);
-			data = new(void*);
-			copy(data, dnode_get_data(pos));
+			data = malloc(sizeof(void*));
+			memcpy(data, dnode_get_data(pos), sizeof(void*));
 			free_dnode(pos);
 			this->size--;
 			return data;
@@ -112,8 +112,8 @@ void* linked_list_pop(LinkedList* this) {
 	DNode* node;
 	if (this && this->head && this->tail) {
 		node = dnode_get_prev(this->tail);
-		data = new(void*);
-		copy(data, dnode_get_data(this->tail));
+		data = malloc(sizeof(void*));
+		memcpy(data, dnode_get_data(this->tail), sizeof(void*));
 		dnode_set_next(node, NULL);
 		free_dnode(this->tail);
 		this->tail = node;
@@ -138,8 +138,8 @@ void* linked_list_pop_element(LinkedList* this, void* obj, int (*cmp)(void*, voi
 			next = dnode_get_next(pos);
 			dnode_set_next(prev, next);
 			dnode_set_prev(next, prev);
-			data = new(void*);
-			copy(data, node_get_data(pos));
+			data = malloc(sizeof(void*));
+			memcpy(data, dnode_get_data(pos), sizeof(void*));
 			free_dnode(pos);
 			this->size--;
 			return data;
@@ -150,7 +150,7 @@ void* linked_list_pop_element(LinkedList* this, void* obj, int (*cmp)(void*, voi
 bool linked_list_remove_first(LinkedList* this) {
 	void* data;
 	if (data = linked_list_pop_first(this)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -158,7 +158,7 @@ bool linked_list_remove_first(LinkedList* this) {
 bool linked_list_remove_at(LinkedList* this, int index) {
 	void* data;
 	if (data = linked_list_pop_at(this, index)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -166,7 +166,7 @@ bool linked_list_remove_at(LinkedList* this, int index) {
 bool linked_list_remove_last(LinkedList* this) {
 	void* data;
 	if (data = linked_list_pop(this)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -174,7 +174,7 @@ bool linked_list_remove_last(LinkedList* this) {
 bool linked_list_remove(LinkedList* this, void* obj, int (*cmp)(void*, void*)) {
 	void* data;
 	if (data = linked_list_pop_element(this, obj, cmp)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -200,13 +200,13 @@ bool linked_list_sort(LinkedList* this, int (*cmp)(void*, void*)) {
 	void* data2;
 	DNode* temp1;
 	DNode* temp2;
-	data = new(void*);
+	data = malloc(sizeof(void*));
 	for (temp1 = this->head; temp1; temp1 = dnode_get_next(temp1)) {
 		for (temp2 = dnode_get_next(temp1); temp2; temp2 = dnode_get_next(temp2)) {
 			data1 = dnode_get_data(temp1);
 			data2 = dnode_get_data(temp2);
 			if (cmp(data1, data2) > 0) {
-				copy(data, data1);
+				memcpy(data, data1, sizeof(void*));
 				dnode_set_data(temp1, data2);
 				dnode_set_data(temp2, data);
 			}
@@ -252,6 +252,6 @@ int free_linked_list(LinkedList* this) {
 		this->head = dnode_get_next(this->head);
 		free_dnode(node);
 	}
-	delete(this);
+	free(this);
 	return bytes;
 }

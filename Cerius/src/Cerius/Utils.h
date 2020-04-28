@@ -2,17 +2,14 @@
 #define _INC_UTILS
 #if !defined(_INC_STDIO)
 #include <stdio.h>
-#endif
+#endif // _INC_STDIO
 #if !defined(_INC_STDLIB)
 #include <stdlib.h>
-#endif
+#endif // _INC_STDLIB
 #if !defined(_INC_STRING)
 #include <string.h>
-#endif
+#endif // _INC_STRING
 #if !defined(_STDBOOL)
 #include <stdbool.h>
-#endif
-#define new(type) malloc(sizeof(type))
-#define copy(dst, src) memcpy(dst, src, sizeof(src))
-#define delete(ptr) free(ptr)
-#endif
+#endif // _STDBOOL
+#endif // _INC_UTILS

@@ -6,11 +6,11 @@
 			#define CERIUS_API __declspec(dllexport)
 		#else
 			#define CERIUS_API __declspec(dllimport)
-		#endif
+		#endif // CRS_BUILD_DLL
 	#else
 		#error Cerius currently only supports windows!
-	#endif
+	#endif // CRS_PLATFORM_WINDOWS
 	#if !defined(_CRT_SECURE_NO_WARNINGS)
 	#define _CRT_SECURE_NO_WARNINGS
-	#endif
-#endif
+	#endif // _CRT_SECURE_NO_WARNINGS
+#endif // _INC_CORE

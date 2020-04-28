@@ -6,9 +6,9 @@ struct Node {
 };
 Node* new_node(void* data) {
 	Node* this;
-	this = new(Node);
-	this->data = new(void*);
-	copy(this->data, data);
+	this = malloc(sizeof(Node));
+	this->data = malloc(sizeof(void*));
+	memcpy(this->data, data, sizeof(void*));
 	this->next = NULL;
 	return this;
 }
@@ -17,7 +17,7 @@ void* node_get_data(Node* this) {
 }
 bool node_set_data(Node* this, void* data) {
 	if (this) {
-		copy(this->data, data);
+		memcpy(this->data, data, sizeof(void*));
 		return true;
 	}
 	return false;
@@ -33,7 +33,7 @@ bool node_set_next(Node* this, Node* next) {
 	return false;
 }
 int free_node(Node* this) {
-	delete(this->data);
-	delete(this);
+	free(this->data);
+	free(this);
 	return sizeof(void*) + sizeof(Node);
 }

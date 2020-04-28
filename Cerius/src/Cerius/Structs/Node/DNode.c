@@ -7,9 +7,9 @@ struct DNode {
 };
 DNode* new_dnode(void* data) {
 	DNode* this;
-	this = new(DNode);
-	this->data = new(void*);
-	copy(this->data, data);
+	this = malloc(sizeof(DNode));
+	this->data = malloc(sizeof(void*));
+	memcpy(this->data, data, sizeof(void*));
 	this->next = NULL;
 	this->prev = NULL;
 	return this;
@@ -19,7 +19,7 @@ void* dnode_get_data(DNode* this) {
 }
 bool dnode_set_data(DNode* this, void* data) {
 	if (this) {
-		copy(this->data, data);
+		memcpy(this->data, data, sizeof(void*));
 		return true;
 	}
 	return false;
@@ -44,13 +44,8 @@ bool dnode_set_prev(DNode* this, DNode* prev) {
 	}
 	return false;
 }
-int delete_dnode(DNode* this) {
-	delete(this->data);
-	delete(this);
-	return sizeof(DNode);
-}
 int free_dnode(DNode* this) {
-	delete(this->data);
-	delete(this);
+	free(this->data);
+	free(this);
 	return sizeof(void*) + sizeof(DNode);
 }

@@ -7,14 +7,20 @@
     <Filter Include="Cerius\Structs">
       <UniqueIdentifier>{57CAF3F6-4398-E7FC-2C2C-58231899C361}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cerius\Structs\DynamicArray">
-      <UniqueIdentifier>{8AF82BCC-F605-5AB2-7FEC-559DEBF82569}</UniqueIdentifier>
+    <Filter Include="Cerius\Structs\Dynamic">
+      <UniqueIdentifier>{CB3334F6-B72D-5D48-A09A-F3588C33C3B4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Cerius\Structs\List">
       <UniqueIdentifier>{22D35047-8E34-2E55-17A2-740783026514}</UniqueIdentifier>
     </Filter>
     <Filter Include="Cerius\Structs\Node">
       <UniqueIdentifier>{6C035247-D864-2F55-61D2-7507CD326614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cerius\Structs\Sparse">
+      <UniqueIdentifier>{74139B6F-E07F-566A-A973-EEC7159F78D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cerius\Structs\Stack">
+      <UniqueIdentifier>{BC9CEF31-A82B-79FB-514A-8DF63DB889A1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,45 +40,79 @@
     <ClInclude Include="src\Cerius\Structs.h">
       <Filter>Cerius</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Array.h">
+      <Filter>Cerius\Structs</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cerius\Structs\Core-Structs.h">
       <Filter>Cerius\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cerius\Utils.h">
-      <Filter>Cerius</Filter>
+    <ClInclude Include="src\Cerius\Structs\DNode.h">
+      <Filter>Cerius\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\Sparse\SparseMatrix.h" />
-    <ClInclude Include="src\Cerius\Structs\Dynamic\Array.h" />
-    <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h" />
-    <ClInclude Include="src\Cerius\Structs\Node.h">
+    <ClInclude Include="src\Cerius\Structs\Dynamic\Array.h">
+      <Filter>Cerius\Structs\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h">
+      <Filter>Cerius\Structs\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\LinkedList.h">
       <Filter>Cerius\Structs</Filter>
     </ClInclude>
     <ClInclude Include="src\Cerius\Structs\List.h">
       <Filter>Cerius\Structs</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\Node\Node.h">
-      <Filter>Cerius\Structs\Node</Filter>
+    <ClInclude Include="src\Cerius\Structs\List\LinkedList.h">
+      <Filter>Cerius\Structs\List</Filter>
     </ClInclude>
     <ClInclude Include="src\Cerius\Structs\List\List.h">
       <Filter>Cerius\Structs\List</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\Node\DNode.h" />
-    <ClInclude Include="src\Cerius\Structs\List\LinkedList.h" />
-    <ClInclude Include="src\Cerius\Structs\DNode.h" />
-    <ClInclude Include="src\Cerius\Structs\LinkedList.h" />
+    <ClInclude Include="src\Cerius\Structs\Node.h">
+      <Filter>Cerius\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Node\DNode.h">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Node\Node.h">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Sparse\SparseMatrix.h">
+      <Filter>Cerius\Structs\Sparse</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Stack\LStack.h">
+      <Filter>Cerius\Structs\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Stack\Stack.h">
+      <Filter>Cerius\Structs\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cerius\Utils.h">
+      <Filter>Cerius</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c" />
-    <ClCompile Include="src\Cerius\Structs\Dynamic\Matrix.c" />
-    <ClCompile Include="src\Cerius\Structs\Node\Node.c">
-      <Filter>Cerius\Structs\Node</Filter>
+    <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c">
+      <Filter>Cerius\Structs\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\Dynamic\Matrix.c">
+      <Filter>Cerius\Structs\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\List\LinkedList.c">
+      <Filter>Cerius\Structs\List</Filter>
     </ClCompile>
     <ClCompile Include="src\Cerius\Structs\List\List.c">
       <Filter>Cerius\Structs\List</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cerius\Structs\Node\DNode.c" />
-    <ClCompile Include="src\Cerius\Structs\List\LinkedList.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
+    <ClCompile Include="src\Cerius\Structs\Node\DNode.c">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\Node\Node.c">
+      <Filter>Cerius\Structs\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\Stack\LStack.c">
+      <Filter>Cerius\Structs\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\Stack\Stack.c">
+      <Filter>Cerius\Structs\Stack</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

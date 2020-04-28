@@ -6,7 +6,7 @@ struct List {
 	Node* tail;
 };
 List* new_list() {
-	List* this = new(List);
+	List* this = malloc(sizeof(List));
 	this->head = this->tail = NULL;
 	this->size = 0;
 	return this;
@@ -69,8 +69,8 @@ void* list_pop_first(List* this) {
 		this->head = node_get_next(this->head);
 		if (!this->head)
 			this->tail = NULL;
-		data = new(void*);
-		copy(data, node_get_data(node));
+		data = malloc(sizeof(void*));
+		memcpy(data, node_get_data(node), sizeof(void*));
 		free_node(node);
 		this->size--;
 		return data;
@@ -89,8 +89,8 @@ void* list_pop_at(List* this, int index) {
 				return list_pop(this);
 			for (pos = this->head; index; index--, prev = pos, pos = node_get_next(pos));
 			node_set_next(prev, node_get_next(pos));
-			data = new(void*);
-			copy(data, node_get_data(pos));
+			data = malloc(sizeof(void*));
+			memcpy(data, node_get_data(pos), sizeof(void*));
 			free_node(pos);
 			this->size--;
 			return data;
@@ -109,8 +109,8 @@ void* list_pop(List* this) {
 			pos = next;
 			next = node_get_next(pos);
 		}
-		data = new(void*);
-		copy(data, node_get_data(this->tail));
+		data = malloc(sizeof(void*));
+		memcpy(data, node_get_data(this->tail), sizeof(void*));
 		node_set_next(pos, NULL);
 		free_node(this->tail);
 		this->tail = pos;
@@ -132,8 +132,8 @@ void* list_pop_element(List* this, void* obj, int (*cmp)(void*, void*)) {
 		}
 		if (pos) {
 			node_set_next(prev, node_get_next(pos));
-			data = new(void*);
-			copy(data, node_get_data(pos));
+			data = malloc(sizeof(void*));
+			memcpy(data, node_get_data(pos), sizeof(void*));
 			free_node(pos);
 			this->size--;
 			return data;
@@ -144,7 +144,7 @@ void* list_pop_element(List* this, void* obj, int (*cmp)(void*, void*)) {
 bool list_remove_first(List* this) {
 	void* data;
 	if (data = list_pop_first(this)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -152,7 +152,7 @@ bool list_remove_first(List* this) {
 bool list_remove_at(List* this, int index) {
 	void* data;
 	if (data = list_pop_at(this, index)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -160,7 +160,7 @@ bool list_remove_at(List* this, int index) {
 bool list_remove_last(List* this) {
 	void* data;
 	if (data = list_pop(this)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -168,7 +168,7 @@ bool list_remove_last(List* this) {
 bool list_remove(List* this, void* obj, int (*cmp)(void*, void*)) {
 	void* data;
 	if (data = list_pop_element(this, obj, cmp)) {
-		delete(data);
+		free(data);
 		return true;
 	}
 	return false;
@@ -194,13 +194,13 @@ bool list_sort(List* this, int (*cmp)(void*, void*)) {
 	void* data2;
 	Node* temp1;
 	Node* temp2;
-	data = new(void*);
+	data = malloc(sizeof(void*));
 	for (temp1 = this->head; temp1; temp1 = node_get_next(temp1)) {
 		for (temp2 = node_get_next(temp1); temp2; temp2 = node_get_next(temp2)) {
 			data1 = node_get_data(temp1);
 			data2 = node_get_data(temp2);
 			if (cmp(data1, data2) > 0) {
-				copy(data, data1);
+				memcpy(data, data1, sizeof(void*));
 				node_set_data(temp1, data2);
 				node_set_data(temp2, data);
 			}
@@ -246,6 +246,6 @@ int free_list(List* this) {
 		this->head = node_get_next(this->head);
 		free_node(node);
 	}
-	delete(this);
+	free(this);
 	return bytes;
 }
