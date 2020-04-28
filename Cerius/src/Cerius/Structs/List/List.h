@@ -5,7 +5,7 @@
 #include "../Core-Structs.h"
 #endif
 #if !defined(_INC_NODE)
-#include "../Node.h"
+#include "../Node/Node.h"
 #endif
 typedef struct List List;
 CERIUS_API List* new_list();
@@ -27,5 +27,6 @@ CERIUS_API int list_print(List*, int (*)(void*));
 CERIUS_API bool list_equals(List*, List*, int (*)(void*, void*));
 CERIUS_API List* list_clone(List*);
 CERIUS_API char* list_to_str(List*, char* (*)(void*));
+CERIUS_API int list_size(List*);
 CERIUS_API int free_list(List*);
 #endif

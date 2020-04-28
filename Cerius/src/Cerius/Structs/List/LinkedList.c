@@ -243,6 +243,10 @@ char* linked_list_to_str(LinkedList* this, char* (*obj_to_str)(void*)) {
 	return str;
 }
 
+int linked_list_size(LinkedList* this) {
+	return this ? this->size : -1;
+}
+
 int free_linked_list(LinkedList* this) {
 	int bytes;
 	DNode* node;

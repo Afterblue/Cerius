@@ -14,5 +14,5 @@ CERIUS_API int array_find(Array*, void*, int (*)(void*, void*));
 CERIUS_API int array_size(Array*);
 CERIUS_API bool array_sort(Array*, int (*)(void*, void*));
 CERIUS_API int array_print(Array*, int(*)(void*));
-CERIUS_API int free_array(Array*);
+CERIUS_API int free_array(Array**);
 #endif // _INC_ARRAY

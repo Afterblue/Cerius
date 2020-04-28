@@ -31,24 +31,22 @@ void array_test() {
 
 	array_sort(arr, cmp_int);
 	puts("After array_sort:");
-	array_print(arr, array_print_int);
+	array_print(arr, print_int);
 
 	num = 999;
 	array_prepend(arr, &num);
 	puts("After array_prepend for value 999:");
-	array_print(arr, array_print_int);
+	array_print(arr, print_int);
 
 	array_remove(arr, 0);
 	puts("After array_remove for first element (removed 999)");
-	array_print(arr, array_print_int);
+	array_print(arr, print_int);
 
 	num = *(int*)array_get(arr, 0);
 	printf("After array_get (got %d)\n", num);
-	array_print(arr, array_print_int);
-
-	free_array(arr);
 	array_print(arr, print_int);
 
+	free_array(&arr);
 }
 void linked_list_test() {
 	int num, i, size;

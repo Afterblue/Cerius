@@ -26,7 +26,7 @@ bool array_prepend(Array* this, void* obj) {
 	void** tmp;
 	if (this) {
 		if (tmp = realloc(this->head, sizeof(void*) * (this->size + 1))) {
-			if(this->head)
+			if (this->head)
 				memcpy(tmp + 1, this->head, sizeof(void*) * this->size);
 			memcpy(tmp, obj, sizeof(void*));
 			this->head = tmp;
@@ -93,18 +93,18 @@ bool array_sort(Array* this, int (*cmp)(void*, void*)) {
 }
 int array_print(Array* this, int(*print)(void*)) {
 	int i;
-	printf("[ ");
-	for (i = 0; i < this->size - 1; i++) {
-		print(this->head + i);
-		printf(", ");
-	}
-	print(this->head + i);
-	puts(" ]");
-}
-int free_array(Array* this) {
-	int i;
 	int bytes;
-	/*for (i = bytes = 0; i < this->size; i++)
-		free(this->head + i);*/
-	return this->size * sizeof(void*);
+	bytes = printf("[ ");
+	for (i = 0; i < this->size - 1; i++)
+		bytes += print(this->head + i) + printf(", ");
+	return bytes + print(this->head + i) + puts(" ]");
+}
+int free_array(Array** this) {
+	int bytes;
+	bytes = (*this)->size * sizeof(void*);
+	free((*this)->head);
+	free(*this);
+	*this = NULL;
+	return bytes;
+	
 }

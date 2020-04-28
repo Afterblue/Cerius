@@ -236,7 +236,9 @@ char* list_to_str(List* this, char* (*obj_to_str)(void*)) {
 		strcat(str, obj_to_str(node_get_data(pos)));
 	return str;
 }
-
+int list_size(List* this) {
+	return this ? this->size : -1;
+}
 int free_list(List* this) {
 	int bytes;
 	Node* node;

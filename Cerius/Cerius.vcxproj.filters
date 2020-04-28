@@ -40,13 +40,7 @@
     <ClInclude Include="src\Cerius\Structs.h">
       <Filter>Cerius</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\Array.h">
-      <Filter>Cerius\Structs</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cerius\Structs\Core-Structs.h">
-      <Filter>Cerius\Structs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\DNode.h">
       <Filter>Cerius\Structs</Filter>
     </ClInclude>
     <ClInclude Include="src\Cerius\Structs\Dynamic\Array.h">
@@ -55,20 +49,11 @@
     <ClInclude Include="src\Cerius\Structs\Dynamic\Matrix.h">
       <Filter>Cerius\Structs\Dynamic</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\LinkedList.h">
-      <Filter>Cerius\Structs</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\List.h">
-      <Filter>Cerius\Structs</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cerius\Structs\List\LinkedList.h">
       <Filter>Cerius\Structs\List</Filter>
     </ClInclude>
     <ClInclude Include="src\Cerius\Structs\List\List.h">
       <Filter>Cerius\Structs\List</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Cerius\Structs\Node.h">
-      <Filter>Cerius\Structs</Filter>
     </ClInclude>
     <ClInclude Include="src\Cerius\Structs\Node\DNode.h">
       <Filter>Cerius\Structs\Node</Filter>
