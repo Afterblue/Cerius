@@ -34,19 +34,15 @@ void* stack_pop(Stack* this) {
 		return obj;
 	}
 }
-
 void* stack_top(Stack* this) {
 	return this ? array_get(this->arr, 0) : NULL;
 }
-
 void* stack_bottom(Stack* this) {
 	return this ? array_get(this->arr, array_size(this->arr) - 1) : NULL;
 }
-
 int stack_size(Stack* this) {
 	return array_size(this->arr);
 }
-
 bool is_empty(Stack* this) {
 	return (bool)(this->arr || !array_size(this->arr));
 }

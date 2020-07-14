@@ -82,7 +82,6 @@ void* linked_list_pop_first(LinkedList* this) {
 	}
 	return NULL;
 }
-// come back here
 void* linked_list_pop_at(LinkedList* this, int index) {
 	void* data;
 	DNode* pos;
@@ -242,11 +241,9 @@ char* linked_list_to_str(LinkedList* this, char* (*obj_to_str)(void*)) {
 		strcat(str, obj_to_str(dnode_get_data(pos)));
 	return str;
 }
-
 int linked_list_size(LinkedList* this) {
 	return this ? this->size : -1;
 }
-
 int free_linked_list(LinkedList* this) {
 	int bytes;
 	DNode* node;

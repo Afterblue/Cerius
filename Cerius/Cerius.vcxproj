@@ -144,6 +144,7 @@
     <ClInclude Include="src\Cerius\Structs\List\List.h" />
     <ClInclude Include="src\Cerius\Structs\Node\DNode.h" />
     <ClInclude Include="src\Cerius\Structs\Node\Node.h" />
+    <ClInclude Include="src\Cerius\Structs\Queue\Queue.h" />
     <ClInclude Include="src\Cerius\Structs\Sparse\SparseMatrix.h" />
     <ClInclude Include="src\Cerius\Structs\Stack\LStack.h" />
     <ClInclude Include="src\Cerius\Structs\Stack\Stack.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="src\Cerius\Structs\List\List.c" />
     <ClCompile Include="src\Cerius\Structs\Node\DNode.c" />
     <ClCompile Include="src\Cerius\Structs\Node\Node.c" />
+    <ClCompile Include="src\Cerius\Structs\Queue\Queue.c" />
     <ClCompile Include="src\Cerius\Structs\Stack\LStack.c" />
     <ClCompile Include="src\Cerius\Structs\Stack\Stack.c" />
   </ItemGroup>

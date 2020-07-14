@@ -73,6 +73,7 @@
     <ClInclude Include="src\Cerius\Utils.h">
       <Filter>Cerius</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cerius\Structs\Queue\Queue.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cerius\Structs\Dynamic\Array.c">
@@ -99,5 +100,6 @@
     <ClCompile Include="src\Cerius\Structs\Stack\Stack.c">
       <Filter>Cerius\Structs\Stack</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cerius\Structs\Queue\Queue.c" />
   </ItemGroup>
 </Project>

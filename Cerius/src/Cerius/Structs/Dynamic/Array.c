@@ -55,7 +55,6 @@ void* array_get(Array* this, int index) {
 		return this->head + index;
 	return NULL;
 }
-
 bool array_set(Array* this, int index, void* obj) {
 	if (this && index > 0 && index < this->size) {
 		this->head[index] = obj;

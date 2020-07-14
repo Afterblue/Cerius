@@ -11,5 +11,4 @@ CERIUS_API Matrix* new_matrix();
 CERIUS_API bool matrix_append_row(Matrix*);
 CERIUS_API bool matrix_prepend_row(Matrix*);
 CERIUS_API bool matrix_add_row(Matrix*, int);
-
 #endif
